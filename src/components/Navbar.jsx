@@ -1,38 +1,102 @@
+import { useState } from "react";
 import logo from "../assets/myInitials.png";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { NAVIGATION_LINKS } from "../constants";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+  const handleLinkClick = (e, href) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      const offset = -80;
+      const elementPosition = targetElement.getBoundingClientRect().top; //getBoundingClientRect calculates the distance between the target element and the top of the viewport
+      const offsetPosition = elementPosition + window.scrollY + offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
-    <nav className="sticky mb-20 flex items-center justify-between py-6">
-      <a
-        href="/"
-        className="flex flex-shrink-0 items-center hover:opacity-70 ease-in-out duration-300"
-      >
-        <img
-          src={logo}
-          alt="logo"
-          className="rounded-full h-[60px] w-[60px] border-2 border-cyan-400"
-        />
-      </a>
-      <div className="flex items-center m-8 justify-center gap-4 text-2xl">
-        <a href="https://www.linkedin.com/in/prathampilli/" className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-sm before:bg-white before:duration-300 before:ease-out hover:shadow-white hover:before:h-5 hover:before:w-5 hover:text-[#0072b1]" target = "_blank" rel = "noopener noreferrer">
-          <FaLinkedin className="relative z-10" />
-        </a>
-        <a href="https://www.github.com/ppilli1" className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.4rem] hover:before:w-[1.1rem] hover:text-black" target = "_blank" rel = "noopener noreferrer">
-          <FaGithub className="relative z-10" />
-        </a>
-        <a href="https://www.pinterest.com/prathampilli04/" className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.4rem] hover:before:w-[1.3rem] hover:text-[#BD081C]" target="_blank" rel="noopener noreferrer">
-          <FaPinterest className="relative z-10" />
-        </a>
-        <a href="https://www.instagram.com/pxlli8055/" className="relative flex h-6 w-6 items-center justify-center overflow-hidden text-white transition-all before:absolute before:h-0 before:w-0 before:rounded-md before:bg-white before:duration-300 before:ease-out hover:before:h-6 hover:before:w-6 hover:before:bg-gradient-to-b hover:before:from-[#833AB4] hover:before:via-[#FD1D1D] hover:before:to-[#FCB045]" target="_blank" rel="noopener noreferrer">
-          <FaInstagram className="relative z-10 bg-clip-text hover:bg-gradient-to-b hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#FCB045] hover:bg-clip-text" />
-        </a>
-      </div>
-    </nav>
+    <div className="mb-[100px] lg:mb-[210px]">
+      <nav className="fixed left-0 right-0 top-4 z-50">
+        {/* Desktop Menu */}
+        <div className="mx-auto hidden max-w-2xl items-center justify-center rounded-lg border border-slate-50/30 bg-black/20 py-3 backdrop-blur-lg lg:flex">
+          <div className="flex items-center justify-between gap-6">
+            {/* <div> */}
+            <a
+              href="#"
+              className="caveat-font font-semibold text-4xl hover:text-sky-500 duration-300 ease-in-out"
+            >
+              Pratham Pilli
+            </a>
+            {/* </div> */}
+            <div>
+              <ul className="flex items-center gap-4">
+                {NAVIGATION_LINKS.map((item, index) => (
+                  <li key={index}>
+                    <a
+                      className="text-sm hover:text-sky-500 duration-300 ease-in-out"
+                      href={item.href}
+                      onClick={(e) => handleLinkClick(e, item.href)}
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {/* Mobile Menu */}
+        <div className="rounded-lg backdrop-blur-md lg:hidden">
+          <div className="flex items-center justify-between">
+            <div>
+              <a
+                href="#"
+                className="caveat-font font-semibold text-2xl m-2 hover:text-sky-500 duration-300 ease-in-out"
+              >
+                Pratham Pilli
+              </a>
+            </div>
+            <div className="flex items-center">
+              <button
+                className="focus:outline-none lg:hidden"
+                onClick={toggleMobileMenu}
+              >
+                {isMobileMenuOpen ? (
+                  <FaTimes className="m-2 h-6 w-5" />
+                ) : (
+                  <FaBars className="m-2 h-6 w-5" />
+                )}
+              </button>
+            </div>
+          </div>
+          {isMobileMenuOpen && (
+            <ul className="ml-4 mt-4 flex flex-col gap-4 backdrop-blur-md">
+              {NAVIGATION_LINKS.map((item, index) => (
+                <li key={index}>
+                  <a
+                    href={item.href}
+                    className="block w-full text-lg hover:text-sky-500 duration-300 ease-in-out"
+                    onClick={(e) => handleLinkClick(e, item.href)}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </nav>
+    </div>
   );
 };
 

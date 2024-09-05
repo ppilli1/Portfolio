@@ -1,101 +1,51 @@
-import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
-import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/insta.jpg";
-import projImg2 from "../assets/uber.png";
-import projImg3 from "../assets/ferrari.jpg";
-import projImg4 from "../assets/emptyImg.jpg"
-import projImg5 from "../assets/angryBirds.png"
-import projImg6 from "../assets/t-rexRunner.png"
-import colorSharp2 from "../assets/color-sharp2.png";
-//import 'animate.css';
-import TrackVisibility from 'react-on-screen';
+import { MdArrowOutward } from "react-icons/md";
+import { PROJECT } from "../constants";
 
-export const Projects = () => {
-
-  const projects = [
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg1,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg2,
-    },
-    {
-      title: "Business Startup",
-      description: "Design & Development",
-      imgUrl: projImg3,
-    },
-    {
-      title: "An Angry Birds Simulation!",
-      description: "Design & Development",
-      imgUrl: projImg5,
-    },
-    {
-      title: "Google's T-Rex Runner",
-      description: "Design & Development",
-      imgUrl: projImg6,
-    },
-    {
-      title: "AI App?",
-      description: "Design & Development",
-      imgUrl: projImg4,
-    },
-  ];
-
+const Projects = () => {
   return (
-    <section className="project" id="projects">
-      <Container>
-        <Row>
-          <Col size={12}>
-            <TrackVisibility>
-              {({ isVisible }) =>
-              <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
-                <h2>Pratham's Projects</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <Tab.Container id="projects-tabs" defaultActiveKey="first">
-                  <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
-                    <Nav.Item>
-                      <Nav.Link eventKey="first">Tab 1</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="second">Tab 2</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                      <Nav.Link eventKey="third">Tab 3</Nav.Link>
-                    </Nav.Item>
-                  </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
-                    <Tab.Pane eventKey="first">
-                      <Row>
-                        {
-                          projects.map((project, index) => {
-                            return (
-                              <ProjectCard
-                                key={index}
-                                {...project}
-                                />
-                            )
-                          })
-                        }
-                      </Row>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="second">
-                      <p>You can find more of my projects here as I continue my app, web, and video game development journey here!</p>
-                    </Tab.Pane>
-                    <Tab.Pane eventKey="third">
-                      <p>You can find more of my projects here as I continue my app, web, and video game development journey here!</p>
-                    </Tab.Pane>
-                  </Tab.Content>
-                </Tab.Container>
-              </div>}
-            </TrackVisibility>
-          </Col>
-        </Row>
-      </Container>
-      <img className="background-image-right" src={colorSharp2}></img>
+    <section id="projects" className="border-b-[2px] border-slate-700 pb-24 lg:mx-10">
+      <h2 className="my-20 text-center text-4xl">
+        <span className="bg-gradient-to-r from-sky-500 via-sky-300 to-sky-500 bg-clip-text text-4xl tracking-tight text-transparent">
+          Projects
+        </span>
+      </h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 lg:mx-20">
+        {PROJECT.map((project) => (
+          <div
+            key={project.id}
+            className="group relative overflow-hidden rounded-3xl md:mx-auto sm:mx-20 mx-10"
+          >
+            <img
+              src={project.image}
+              alt={project.name}
+              className={project.imageClassName}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white opacity-0 backdrop-blur-lg transition-opacity duration-500 group-hover:opacity-100">
+              <h3 className="2xl:text-xl 2xl:mb-6 xl:text-[0.95rem] xl:mb-2 lg:text-[1.05rem] lg:mb-6 md:text-[1.05rem] md:mb-4 sm:text-xl sm:mb-8 mb-4 text-lg tracking-tight text-center">
+                {project.name}
+              </h3>
+              <p className="p-4 2xl:text-[1rem] 2xl:mb-8 xl:text-[0.85rem] xl:mb-4 lg:text-[0.92rem] lg:mb-8 md:text-[0.92rem] md:mb-6 sm:text-[1rem] sm:mb-10 text-sm mb-2 tracking-tight">
+                {project.description}
+              </p>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={project.buttonClassName}
+              >
+                <div className="z-10 flex items-center">
+                  <span className="2xl:text-[1rem] xl:text-sm lg:text-[1rem] md:text-sm sm:text-[1rem] text-sm">
+                    View on Github
+                  </span>
+                  <MdArrowOutward />
+                </div>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
-  )
-}
+  );
+};
+
+export default Projects;

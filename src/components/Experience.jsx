@@ -21,7 +21,7 @@ const Experience = () => {
   };
 
   return (
-    <div className="border-b-[2px] border-neutral-900 pb-4 lg:mx-10">
+    <section id = "experience" className="border-b-[2px] border-slate-700 pb-12 lg:mx-10">
       <h2 className="my-20 text-center text-4xl">
         <span className="bg-gradient-to-r from-sky-500 via-sky-300 to-sky-500 bg-clip-text text-4xl tracking-tight text-transparent">
           Experience
@@ -34,7 +34,7 @@ const Experience = () => {
                 {/*For whatever reason, adding padding acts like a margin without disrupting the central layout of the React Slider cards */}
                 <div
                   key={index}
-                  className="h-[450px] 2xl:w-auto 2xl:mx-0 xl:w-[350px] xl:mx-auto lg:w-[350px] lg:mx-auto md:w-[350px] md:mx-auto sm:w-[325px] sm:mx-[6.8rem] sm:h-[600px] w-[250px] mx-auto text-black rounded-2xl flex flex-col justify-between border-[0.25rem] border-neutral-900 group-hover:shadow-lg group-hover:shadow-blue-500 group-hover:ease-in-out group-hover:duration-300"
+                  className="h-[450px] 2xl:w-auto 2xl:mx-0 xl:w-[350px] xl:mx-auto lg:w-[350px] lg:mx-auto md:w-[350px] md:mx-auto sm:w-[325px] sm:mx-[6.8rem] sm:h-[600px] w-[250px] mx-auto text-black rounded-2xl flex flex-col justify-between border-[0.25rem] border-slate-700 group-hover:shadow-lg group-hover:shadow-slate-400 group-hover:ease-in-out group-hover:duration-300 transition-all group-hover:border-slate-400"
                 >
                   <div className = "relative">
                   <div className="absolute inset-0 rounded-t-xl bg-gradient-to-r from-blue-900 to-blue-600 -z-10"></div>
@@ -56,7 +56,7 @@ const Experience = () => {
                     </p>
                     <p className="text-sm font-semibold">{experience.role}</p>
                     <p className="text-sm font-semibold">{experience.year}</p>
-                    <p className="text-[0.8rem] sm:text-sm text-black">
+                    <p className="text-[0.8rem] sm:text-sm text-black tracking-tight">
                       {experience.description}
                     </p>
                     {/* <button className="bg-indigo-500 text-white text-lg px-6 py-1 rounded-xl">
@@ -84,7 +84,7 @@ const Experience = () => {
             ))}
           </Slider>
       </div>
-    </div>
+    </section>
   );
 };
 
