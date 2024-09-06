@@ -27,6 +27,7 @@ export const ABOUT_TEXT = `I am a Computer Science major with a minor in Busines
 
 export const EXPERIENCES = [
   {
+    id: 1,
     year: "Jan'24 - Feb'24",
     role: "Product Dev. Infotainment Intern",
     company: "BMW Group",
@@ -35,9 +36,27 @@ export const EXPERIENCES = [
     imageClassName: "object-cover w-full h-full",
     gradient: "absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50 rounded-full z-10",
     description: `Developed in-car app prototypes for Android Automotive, utilizing Kotlin and Java, while concurrently designing and implementing Python scripts to bolster automated testing and facilitate rapid prototyping. Provided crucial support to the engineering team by testing Sirius XM radio functions in the new Android-powered BMW infotainment system.`,
-    technologies: ["Automotive", "Android Studio", "Kotlin", "Python"],
+    technologies: [
+      {
+        id: 1,
+        name: "Automotive"
+      }, 
+      {
+        id: 2,
+        name: "Android Studio"
+      }, 
+      {
+        id: 3,
+        name: "Kotlin"
+      }, 
+      {
+        id: 4,
+        name: "Python"
+      }
+    ],
   },
   {
+    id: 2,
     year: "Jan'24 - Apr'24",
     role: "SynthSense Startup Founder",
     company: "NSF I-Corps",
@@ -46,9 +65,27 @@ export const EXPERIENCES = [
     imageClassName: "object-cover object-center w-full h-full",
     gradient: "absolute sm:inset-5 inset-[10px] bg-gradient-to-b from-black via-transparent to-black opacity-50 rounded-full z-10",
     description: `Founded SynthSense, a computer vision startup focused on tracking patient cognitive behavior in hospital and residential settings. Represented startup at CES 2024 in Las Vegas, conducting interviews and fostering connections with 50+ industry leaders to develop market-driven product focus points, and adeptly managed financial resources ($3,000) granted by the National Science Foundation's Innovation-Corps.`,
-    technologies: ["Startup", "Medical-tech", "Computer Vision", "React Native"],
+    technologies: [
+      {
+        id: 1,
+        name: "Startup"
+      }, 
+      {
+        id: 2,
+        name: "Medical-tech"
+      }, 
+      {
+        id: 3,
+        name: "Computer Vision"
+      }, 
+      {
+        id: 4,
+        name: "React Native"
+      }
+    ],
   },
   {
+    id: 3,
     year: "May'23 - Feb'24",
     role: "Coding Instructor",
     company: "theCoderSchool",
@@ -57,9 +94,27 @@ export const EXPERIENCES = [
     imageClassName: "object-cover object-center w-full h-full",
     gradient: "absolute inset-0 bg-gradient-to-b from-black via-transparent to-black opacity-50 rounded-full z-10",
     description: `Conducted one-on-one courses in Python and Scratch, facilitating significant growth in students' coding proficiency. Designed and led a two-week summer camp program, the first week covering Python fundamentals (loops, conditionals, and Turtle graphics) and the second week for React Native app development integrated with Google Firebase (buttons, navigation, data querying).`,
-    technologies: ["React Native", "Python", "Firebase", "Scratch"],
+    technologies: [
+      {
+        id: 1,
+        name: "React Native"
+      }, 
+      {
+        id: 2,
+        name: "Python"
+      }, 
+      {
+        id: 3,
+        name: "Firebase"
+      }, 
+      {
+        id: 4,
+        name: "Scratch"
+      }
+    ],
   },
   {
+    id: 4,
     year: "May'21 - Aug'22",
     role: "Math Instructor",
     company: "Mathnasium",
@@ -68,7 +123,24 @@ export const EXPERIENCES = [
     imageClassName: "object-cover object-center w-full h-full",
     gradient: "",
     description: `Provided comprehensive math instruction to students in grades K-10, covering topics from basic arithmetic to advanced geometry and algebra 2. Implemented a personalized approach to student engagement, fostering strong connections by incorporating students' interests, such as discussing popular culture topics, to create a supportive learning environment and enhance student motivation and focus.`,
-    technologies: ["SAT Math", "Geometry", "Algebra", "Arithmetic",],
+    technologies: [
+      {
+        id: 1,
+        name: "SAT Math"
+      }, 
+      {
+        id: 2,
+        name: "Geometry"
+      }, 
+      {
+        id: 3,
+        name: "Algebra"
+      }, 
+      {
+        id: 4,
+        name: "Arithmetic"
+      }
+    ],
   },
 ];
 

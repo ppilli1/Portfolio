@@ -15,7 +15,7 @@ const Footer = () => {
         </a>
         <a
           href="https://www.github.com/ppilli1"
-          className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.4rem] hover:before:w-[1.1rem] hover:text-black"
+          className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.417rem] hover:before:w-[1.4rem] hover:text-black"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -23,7 +23,7 @@ const Footer = () => {
         </a>
         <a
           href="https://www.pinterest.com/prathampilli04/"
-          className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.4rem] hover:before:w-[1.3rem] hover:text-[#BD081C]"
+          className="relative flex h-6 w-6 items-center justify-center overflow-hidden bg-transparent text-white shadow-2xl transition-all before:absolute before:h-0 before:w-0 before:rounded-full before:bg-white before:duration-300 before:ease-out before:overflow-hidden hover:shadow-white hover:before:h-[1.417rem] hover:before:w-[1.4rem] hover:before:overflow-hidden hover:text-[#BD081C]"
           target="_blank"
           rel="noopener noreferrer"
         >

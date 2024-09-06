@@ -29,11 +29,11 @@ const Experience = () => {
       </h2>
       <div className="w-full xl:w-3/4 m-auto mb-12">
           <Slider {...settings}>
-            {EXPERIENCES.map((experience, index) => (
+            {EXPERIENCES.map((experience) => (
               <div className="px-4 max-w-full group">
                 {/*For whatever reason, adding padding acts like a margin without disrupting the central layout of the React Slider cards */}
                 <div
-                  key={index}
+                  key={experience.id}
                   className="h-[450px] 2xl:w-auto 2xl:mx-0 xl:w-[350px] xl:mx-auto lg:w-[350px] lg:mx-auto md:w-[350px] md:mx-auto sm:w-[325px] sm:mx-[6.8rem] sm:h-[600px] w-[250px] mx-auto text-black rounded-2xl flex flex-col justify-between border-[0.25rem] border-slate-700 group-hover:shadow-lg group-hover:shadow-slate-400 group-hover:ease-in-out group-hover:duration-300 transition-all group-hover:border-slate-400"
                 >
                   <div className = "relative">
@@ -69,12 +69,12 @@ const Experience = () => {
 
                     {/* Grid Container */}
                     <div className="grid grid-cols-2 h-full justify-items-center items-center">
-                      {experience.technologies.map((tech, index) => (
+                      {experience.technologies.map((tech) => (
                         <span
-                          key={index}
+                          key={tech.id}
                           className="text-[0.8rem] sm:text-[1rem] font-medium z-20 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 bg-clip-text text-transparent"
                         >
-                          {tech}
+                          {tech.name}
                         </span>
                       ))}
                     </div>

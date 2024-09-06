@@ -21,10 +21,10 @@ const Projects = () => {
               className={project.imageClassName}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-white opacity-0 backdrop-blur-lg transition-opacity duration-500 group-hover:opacity-100">
-              <h3 className="2xl:text-xl 2xl:mb-6 xl:text-[0.95rem] xl:mb-2 lg:text-[1.05rem] lg:mb-6 md:text-[1.05rem] md:mb-4 sm:text-xl sm:mb-8 mb-4 text-lg tracking-tight text-center">
+              <h3 className="2xl:text-xl 2xl:mb-6 xl:text-[0.95rem] xl:mb-2 lg:text-[1.05rem] lg:mb-6 md:text-[1.05rem] md:mb-4 sm:text-xl sm:mb-8 mb-2 text-lg tracking-tight text-center">
                 {project.name}
               </h3>
-              <p className="p-4 2xl:text-[1rem] 2xl:mb-8 xl:text-[0.85rem] xl:mb-4 lg:text-[0.92rem] lg:mb-8 md:text-[0.92rem] md:mb-6 sm:text-[1rem] sm:mb-10 text-sm mb-2 tracking-tight">
+              <p className="p-4 2xl:text-[1rem] 2xl:mb-8 xl:text-[0.85rem] xl:mb-4 lg:text-[0.92rem] lg:mb-8 md:text-[0.92rem] md:mb-6 sm:text-[1rem] sm:mb-10 text-sm mb-0 tracking-tight font-light">
                 {project.description}
               </p>
               <a

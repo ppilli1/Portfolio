@@ -62,6 +62,7 @@ const Navbar = () => {
               <a
                 href="#"
                 className="caveat-font font-semibold text-2xl m-2 hover:text-sky-500 duration-300 ease-in-out"
+                onClick = {() => setIsMobileMenuOpen(false)}
               >
                 Pratham Pilli
               </a>
